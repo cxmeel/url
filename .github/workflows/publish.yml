@@ -1,0 +1,49 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  publish-public:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node LTS
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+
+      - name: Setup Toolchain
+        uses: Roblox/setup-foreman@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report Tool Versions
+        run: |
+          foreman list
+          npm -v
+          node -v
+
+      - name: Install Dependencies
+        run: |
+          npm install
+          wally install
+
+      - name: Remove Tests
+        run: |
+          find . -name "*.spec.lua" -delete
+
+      - name: Publish to Wally
+        if: ${{ github.event.release.prerelease == false }}
+        env:
+          WALLY_TOKEN: ${{ secrets.WALLY_TOKEN }}
+        run: |
+          mkdir =p ~/.wally
+          printf "[tokens]\n\"https://api.wally.run/\" = \"%s\"" "$WALLY_TOKEN" >> ~/.wally/auth.toml
+          wally publish

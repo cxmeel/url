@@ -1,0 +1,9 @@
+title = "URL"
+gitSourceBranch = "main"
+changelog = true
+
+classOrder = ["URL"]
+
+[docusaurus.themeConfig.colorMode]
+respectPrefersColorScheme = true
+defaultMode = "dark"

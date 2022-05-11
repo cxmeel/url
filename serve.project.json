@@ -1,0 +1,12 @@
+{
+  "name": "URLServe",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "URL": {
+        "$path": "default.project.json"
+      }
+    }
+  }
+}

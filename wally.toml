@@ -1,0 +1,10 @@
+[package]
+name = "csqrl/url"
+description = "Utility library for working with URLs"
+version = "0.0.0"
+license = "MIT"
+author = "csqrl (https://csqrl.dev)"
+registry = "https://github.com/upliftgames/wally-index"
+realm = "shared"
+exclude = ["**"]
+include = ["src", "src/**", "wally.toml", "wally.lock", "default.project.json"]
