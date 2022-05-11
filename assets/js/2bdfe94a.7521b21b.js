@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[884],{97868:function(s){s.exports=JSON.parse('{"sourceUrl":"https://github.com/csqrl/url/blob/main","baseUrl":"/url/","classOrder":["URL"],"apiCategories":[]}')}}]);
